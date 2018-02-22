@@ -20,7 +20,11 @@ import com.couchbase.capi.CouchbaseBehavior;
 import com.grallandco.MongoDBCouchbaseReplicator;
 import com.grallandco.util.MongoConnectionManager;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class MongoCouchbaseBehavior implements CouchbaseBehavior {
 
@@ -64,6 +68,7 @@ public class MongoCouchbaseBehavior implements CouchbaseBehavior {
      * @param pool
      * @return
      */
+    @Override
     public List<String> getBucketsInPool(String pool) {
         List<String> bucketNameList = new ArrayList<String>();
         bucketNameList.add("default");
@@ -72,6 +77,7 @@ public class MongoCouchbaseBehavior implements CouchbaseBehavior {
         return bucketNameList;
     }
 
+    @Override
     public String getBucketUUID(String pool, String bucket) {
         // TODO : improve this for production if needed
         return "00000000000000000000000000000000";
@@ -96,14 +102,15 @@ public class MongoCouchbaseBehavior implements CouchbaseBehavior {
             nodes.add(node);
         }
         return nodes;
-    }
+      }
 
     /**
      * Not used
      * @return empty map
      */
+    @Override
     public Map<String, Object> getStats() {
-        return new HashMap<String, Object>();
+        return new HashMap<>();
     }
 
 }

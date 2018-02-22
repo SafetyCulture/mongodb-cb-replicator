@@ -47,22 +47,21 @@ public class MongoDBCouchbaseReplicator {
     private static final String SERVER_USERNAME     = "server.username";
     private static final String SERVER_PASSWORD     = "server.password";
 
-
     public static String    mongoUri           = "localhost:27017";
 
     public static String    dotReplacement     = "_";
-    public static String    dollarReplacement     = "-";
+    public static String    dollarReplacement  = "-";
 
     public static String    serverBinding      = "127.0.0.1";
     public static int       serverPort         = 8017;
-    public static String    replicationType = "update_only";
+    public static String    replicationType    = "update_only";
     public static String    defaultCollection  = "couchbase_data";
     public static String    collectionField    = "type";
     public static boolean   keepMeta           = false;
     public static int       vBucketNumber      = 1024;
 
-    public static String username           = "admin";
-    public static String password           = "admin";
+    public static String username              = "admin";
+    public static String password              = "admin";
 
 
 
@@ -73,7 +72,6 @@ public class MongoDBCouchbaseReplicator {
         System.out.println("##################################################");
         System.out.println( String.format("##\t%s - %s ##", VersionProvider.getName(), VersionProvider.getVersion())  );
         System.out.println("##################################################\n\n");
-
 
         if (args != null && args.length != 0) {
             setup(args[0]);
@@ -89,15 +87,11 @@ public class MongoDBCouchbaseReplicator {
         CAPIServer capiServer = new CAPIServer(
                     capiBehavior,
                     couchbaseBehavior,
-                    new InetSocketAddress(serverBinding, serverPort) ,
+                    new InetSocketAddress(serverBinding, serverPort),
                     username,
                     password,
                     vBucketNumber);
         capiServer.start();
-
-
-
-
     }
 
     /**
@@ -160,14 +154,10 @@ public class MongoDBCouchbaseReplicator {
             }
 
 
-
-
-
         } catch (IOException e) {
             System.out.println(e.getMessage() + "\n\n");
             System.exit(0);
         }
-
 
     }
 

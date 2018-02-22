@@ -37,7 +37,6 @@ public class MongoCAPIBehavior implements CAPIBehavior {
 
     private static final Logger logger = Logger.getLogger(MongoCAPIBehavior.class.getName());
 
-
     @Override
     public Map<String, Object> welcome() {
         Map<String, Object> responseMap = new HashMap<String, Object>();
@@ -49,7 +48,6 @@ public class MongoCAPIBehavior implements CAPIBehavior {
     public String databaseExists(String database) {
         return getBucketUUIDFromDatabase(database);
     }
-
 
     @Override
     public Map<String, Object> getDatabaseDetails(String database) {

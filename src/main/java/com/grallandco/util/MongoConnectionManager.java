@@ -58,11 +58,10 @@ public class MongoConnectionManager {
             }
             client = new MongoClient(addressList);
 
-            } catch (UnknownHostException e) {
-                logger.log(Level.SEVERE, e.getMessage());
-                System.exit(1);
+            } catch (RuntimeException e) {
+              logger.log(Level.SEVERE, e.getMessage());
+              System.exit(1);
             }
-
 
             logger.log(Level.INFO, "MongoDB Replicator Connected to "+ addressList);
 
