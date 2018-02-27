@@ -164,7 +164,11 @@ public class MongoCAPIBehavior implements CAPIBehavior {
                         logger.log(Level.SEVERE,e.getMessage());
                     }
 
+                } catch (Exception e) {
 
+                    System.out.println(String.format("Skipped document: %s Error: %s ", meta.get("id"), e.getMessage()));
+                    logger.log(Level.WARNING, String.format("Skipped document: %s Error: %s ", meta.get("id"), e.getMessage()));
+                    
                 }
 
             }
